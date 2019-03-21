@@ -13,9 +13,19 @@
 		FCBC2D37222E66ED0095BA20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCBC2D36222E66ED0095BA20 /* Assets.xcassets */; };
 		FCBC2D3A222E66ED0095BA20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCBC2D38222E66ED0095BA20 /* LaunchScreen.storyboard */; };
 		FCBC2D3D222E66ED0095BA20 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBC2D3C222E66ED0095BA20 /* main.m */; };
-		FCBC2D46222E6E9E0095BA20 /* GCDWebServers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCBC2D44222E6C0A0095BA20 /* GCDWebServers.framework */; };
 		FCBC2D47222E6E9E0095BA20 /* GCDWebServers.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FCBC2D44222E6C0A0095BA20 /* GCDWebServers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FCBC2D4B222E7C670095BA20 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = FCBC2D4A222E7C670095BA20 /* index.html */; };
+		FCBC2D4F222F623D0095BA20 /* ZipArchive.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FCBC2D4C222F62220095BA20 /* ZipArchive.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FCBC2D51222F79CE0095BA20 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = FCBC2D50222F79CE0095BA20 /* config.json */; };
+		FCBC2D53222F966E0095BA20 /* ok.json in Resources */ = {isa = PBXBuildFile; fileRef = FCBC2D52222F966E0095BA20 /* ok.json */; };
+		FCBC2D55222F96970095BA20 /* ads.json in Resources */ = {isa = PBXBuildFile; fileRef = FCBC2D54222F96970095BA20 /* ads.json */; };
+		FCBC2D5F2230BBD70095BA20 /* static in Resources */ = {isa = PBXBuildFile; fileRef = FCBC2D5E2230BBD70095BA20 /* static */; };
+		FCBC2D612230CBCC0095BA20 /* ads1.json in Resources */ = {isa = PBXBuildFile; fileRef = FCBC2D602230CBCC0095BA20 /* ads1.json */; };
+		FCBC2D6922408A180095BA20 /* VungleSDKDynamic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCBC2D6822408A180095BA20 /* VungleSDKDynamic.framework */; };
+		FCFFDF2422436B3900D443F5 /* WebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFFDF2322436B3900D443F5 /* WebServer.m */; };
+		FCFFDF272243701200D443F5 /* AppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFFDF262243701200D443F5 /* AppConfig.m */; };
+		FCFFDF2A2243709A00D443F5 /* ResourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFFDF292243709A00D443F5 /* ResourceManager.m */; };
+		FCFFDF2D224371CF00D443F5 /* SDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFFDF2C224371CF00D443F5 /* SDKManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +36,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				FCBC2D47222E6E9E0095BA20 /* GCDWebServers.framework in Embed Frameworks */,
+				FCBC2D4F222F623D0095BA20 /* ZipArchive.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,6 +56,22 @@
 		FCBC2D3C222E66ED0095BA20 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FCBC2D44222E6C0A0095BA20 /* GCDWebServers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GCDWebServers.framework; path = Carthage/Build/iOS/GCDWebServers.framework; sourceTree = "<group>"; };
 		FCBC2D4A222E7C670095BA20 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		FCBC2D4C222F62220095BA20 /* ZipArchive.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZipArchive.framework; path = Carthage/Build/iOS/ZipArchive.framework; sourceTree = "<group>"; };
+		FCBC2D50222F79CE0095BA20 /* config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
+		FCBC2D52222F966E0095BA20 /* ok.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ok.json; sourceTree = "<group>"; };
+		FCBC2D54222F96970095BA20 /* ads.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ads.json; sourceTree = "<group>"; };
+		FCBC2D5E2230BBD70095BA20 /* static */ = {isa = PBXFileReference; lastKnownFileType = folder; path = static; sourceTree = "<group>"; };
+		FCBC2D602230CBCC0095BA20 /* ads1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ads1.json; sourceTree = "<group>"; };
+		FCBC2D66224085F40095BA20 /* VungleSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VungleSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCBC2D6822408A180095BA20 /* VungleSDKDynamic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VungleSDKDynamic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCFFDF2222436B3900D443F5 /* WebServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebServer.h; sourceTree = "<group>"; };
+		FCFFDF2322436B3900D443F5 /* WebServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebServer.m; sourceTree = "<group>"; };
+		FCFFDF252243701200D443F5 /* AppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
+		FCFFDF262243701200D443F5 /* AppConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppConfig.m; sourceTree = "<group>"; };
+		FCFFDF282243709A00D443F5 /* ResourceManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceManager.h; sourceTree = "<group>"; };
+		FCFFDF292243709A00D443F5 /* ResourceManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceManager.m; sourceTree = "<group>"; };
+		FCFFDF2B224371CF00D443F5 /* SDKManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDKManager.h; sourceTree = "<group>"; };
+		FCFFDF2C224371CF00D443F5 /* SDKManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDKManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCBC2D46222E6E9E0095BA20 /* GCDWebServers.framework in Frameworks */,
+				FCBC2D6922408A180095BA20 /* VungleSDKDynamic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +116,14 @@
 				FCBC2D38222E66ED0095BA20 /* LaunchScreen.storyboard */,
 				FCBC2D3B222E66ED0095BA20 /* Info.plist */,
 				FCBC2D3C222E66ED0095BA20 /* main.m */,
+				FCFFDF2222436B3900D443F5 /* WebServer.h */,
+				FCFFDF2322436B3900D443F5 /* WebServer.m */,
+				FCFFDF252243701200D443F5 /* AppConfig.h */,
+				FCFFDF262243701200D443F5 /* AppConfig.m */,
+				FCFFDF282243709A00D443F5 /* ResourceManager.h */,
+				FCFFDF292243709A00D443F5 /* ResourceManager.m */,
+				FCFFDF2B224371CF00D443F5 /* SDKManager.h */,
+				FCFFDF2C224371CF00D443F5 /* SDKManager.m */,
 			);
 			path = CreativeToolApp;
 			sourceTree = "<group>";
@@ -96,6 +131,9 @@
 		FCBC2D43222E6C090095BA20 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FCBC2D6822408A180095BA20 /* VungleSDKDynamic.framework */,
+				FCBC2D66224085F40095BA20 /* VungleSDK.framework */,
+				FCBC2D4C222F62220095BA20 /* ZipArchive.framework */,
 				FCBC2D44222E6C0A0095BA20 /* GCDWebServers.framework */,
 			);
 			name = Frameworks;
@@ -104,7 +142,12 @@
 		FCBC2D49222E7C4B0095BA20 /* web */ = {
 			isa = PBXGroup;
 			children = (
+				FCBC2D5E2230BBD70095BA20 /* static */,
 				FCBC2D4A222E7C670095BA20 /* index.html */,
+				FCBC2D50222F79CE0095BA20 /* config.json */,
+				FCBC2D52222F966E0095BA20 /* ok.json */,
+				FCBC2D54222F96970095BA20 /* ads.json */,
+				FCBC2D602230CBCC0095BA20 /* ads1.json */,
 			);
 			path = web;
 			sourceTree = "<group>";
@@ -168,8 +211,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCBC2D3A222E66ED0095BA20 /* LaunchScreen.storyboard in Resources */,
+				FCBC2D55222F96970095BA20 /* ads.json in Resources */,
+				FCBC2D612230CBCC0095BA20 /* ads1.json in Resources */,
 				FCBC2D4B222E7C670095BA20 /* index.html in Resources */,
+				FCBC2D51222F79CE0095BA20 /* config.json in Resources */,
+				FCBC2D53222F966E0095BA20 /* ok.json in Resources */,
 				FCBC2D37222E66ED0095BA20 /* Assets.xcassets in Resources */,
+				FCBC2D5F2230BBD70095BA20 /* static in Resources */,
 				FCBC2D35222E66EC0095BA20 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,8 +230,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCBC2D32222E66EC0095BA20 /* ViewController.m in Sources */,
+				FCFFDF2D224371CF00D443F5 /* SDKManager.m in Sources */,
+				FCFFDF2A2243709A00D443F5 /* ResourceManager.m in Sources */,
 				FCBC2D3D222E66ED0095BA20 /* main.m in Sources */,
 				FCBC2D2F222E66EC0095BA20 /* AppDelegate.m in Sources */,
+				FCFFDF272243701200D443F5 /* AppConfig.m in Sources */,
+				FCFFDF2422436B3900D443F5 /* WebServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,8 +379,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Vungle632",
 				);
 				INFOPLIST_FILE = CreativeToolApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -348,8 +402,10 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Vungle632",
 				);
 				INFOPLIST_FILE = CreativeToolApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

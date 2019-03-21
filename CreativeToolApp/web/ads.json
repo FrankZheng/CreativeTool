@@ -1,0 +1,65 @@
+{
+    "ads": [{
+            "placement_reference_id": "LOCAL01",
+            "ad_markup": {
+            "id": "5c8f63fb99de0200012544c8",
+            "campaign": "5a2ece4fa9fcaec31300000e|5a394d79341de2f34000005d|datasci--blr_20180908_cp_cts_dm_gdpr_explore04__4.69.1-exper-hourofday-dm-gdpr--success--meister|5c8f63fb99de0200012544c8",
+            "app_id": "$0${\"app_id\":\"5a2ecc62d588e7e213000112\",\"eventID\":\"5c8f63fb99de0200012544c8\"}",
+            "expiry": 1553505915,
+            "tpat": {
+            "moat": {
+            "is_enabled": false,
+            "extra_vast": ""
+            },
+            "play_percentage": [{
+                                "checkpoint": 0.25,
+                                "urls": ["https://ingest.vungle.com/tpat?event_id=5c8f63fb99de0200012544c8\u0026device_id=739d87f6-c6bd-46af-a7bc-e5675b7f1f06\u0026event_type=PERCENTAGE\u0026play_percentage=0.25", "http://dsp.api.vungle.com/v1/tpat?event_id=5c8f63fb99de0200012544c8\u0026cid=5a2ece4fa9fcaec31300000e\u0026crid=5a394d79341de2f34000005d\u0026ifa=739d87f6-c6bd-46af-a7bc-e5675b7f1f06\u0026test=0\u0026os=iOS\u0026event_type=firstQuartile"]
+                                }, {
+                                "checkpoint": 0,
+                                "urls": ["https://ingest.vungle.com/tpat?event_id=5c8f63fb99de0200012544c8\u0026device_id=739d87f6-c6bd-46af-a7bc-e5675b7f1f06\u0026event_type=PERCENTAGE\u0026play_percentage=0", "http://dsp.api.vungle.com/v1/tpat?event_id=5c8f63fb99de0200012544c8\u0026cid=5a2ece4fa9fcaec31300000e\u0026crid=5a394d79341de2f34000005d\u0026ifa=739d87f6-c6bd-46af-a7bc-e5675b7f1f06\u0026test=0\u0026os=iOS\u0026event_type=start"]
+                                }, {
+                                "checkpoint": 1,
+                                "urls": ["https://ingest.vungle.com/tpat?event_id=5c8f63fb99de0200012544c8\u0026device_id=739d87f6-c6bd-46af-a7bc-e5675b7f1f06\u0026event_type=PERCENTAGE\u0026play_percentage=1", "http://dsp.api.vungle.com/v1/tpat?event_id=5c8f63fb99de0200012544c8\u0026cid=5a2ece4fa9fcaec31300000e\u0026crid=5a394d79341de2f34000005d\u0026ifa=739d87f6-c6bd-46af-a7bc-e5675b7f1f06\u0026test=0\u0026os=iOS\u0026event_type=complete"]
+                                }, {
+                                "checkpoint": 0.75,
+                                "urls": ["https://ingest.vungle.com/tpat?event_id=5c8f63fb99de0200012544c8\u0026device_id=739d87f6-c6bd-46af-a7bc-e5675b7f1f06\u0026event_type=PERCENTAGE\u0026play_percentage=0.75", "http://dsp.api.vungle.com/v1/tpat?event_id=5c8f63fb99de0200012544c8\u0026cid=5a2ece4fa9fcaec31300000e\u0026crid=5a394d79341de2f34000005d\u0026ifa=739d87f6-c6bd-46af-a7bc-e5675b7f1f06\u0026test=0\u0026os=iOS\u0026event_type=thirdQuartile"]
+                                }, {
+                                "checkpoint": 0.50,
+                                "urls": ["https://ingest.vungle.com/tpat?event_id=5c8f63fb99de0200012544c8\u0026device_id=739d87f6-c6bd-46af-a7bc-e5675b7f1f06\u0026event_type=PERCENTAGE\u0026play_percentage=0.5", "http://dsp.api.vungle.com/v1/tpat?event_id=5c8f63fb99de0200012544c8\u0026cid=5a2ece4fa9fcaec31300000e\u0026crid=5a394d79341de2f34000005d\u0026ifa=739d87f6-c6bd-46af-a7bc-e5675b7f1f06\u0026test=0\u0026os=iOS\u0026event_type=midpoint"]
+                                }],
+            "mute": ["https://ingest.vungle.com/tpat?event_id=5c8f63fb99de0200012544c8\u0026device_id=739d87f6-c6bd-46af-a7bc-e5675b7f1f06\u0026event_type=MUTE", "http://dsp.api.vungle.com/v1/tpat?event_id=5c8f63fb99de0200012544c8\u0026cid=5a2ece4fa9fcaec31300000e\u0026crid=5a394d79341de2f34000005d\u0026ifa=739d87f6-c6bd-46af-a7bc-e5675b7f1f06\u0026test=0\u0026os=iOS\u0026event_type=mute"],
+            "unmute": ["https://ingest.vungle.com/tpat?event_id=5c8f63fb99de0200012544c8\u0026device_id=739d87f6-c6bd-46af-a7bc-e5675b7f1f06\u0026event_type=UNMUTE", "http://dsp.api.vungle.com/v1/tpat?event_id=5c8f63fb99de0200012544c8\u0026cid=5a2ece4fa9fcaec31300000e\u0026crid=5a394d79341de2f34000005d\u0026ifa=739d87f6-c6bd-46af-a7bc-e5675b7f1f06\u0026test=0\u0026os=iOS\u0026event_type=unmute"],
+            "video_close": ["https://ingest.vungle.com/tpat?event_id=5c8f63fb99de0200012544c8\u0026device_id=739d87f6-c6bd-46af-a7bc-e5675b7f1f06\u0026event_type=VIDEO_CLOSE", "http://dsp.api.vungle.com/v1/tpat?event_id=5c8f63fb99de0200012544c8\u0026cid=5a2ece4fa9fcaec31300000e\u0026crid=5a394d79341de2f34000005d\u0026ifa=739d87f6-c6bd-46af-a7bc-e5675b7f1f06\u0026test=0\u0026os=iOS\u0026event_type=video_close"],
+            "postroll_click": ["https://app.adjust.com/3auatp?campaign=%5BAd%20Credit%5D%20QA-IOS-E2E-Campaign\u0026adgroup=QA-IOS-E2E-Pub-App.5a2ecbffd588e7e21300000e\u0026creative=Local3\u0026idfa=739d87f6-c6bd-46af-a7bc-e5675b7f1f06\u0026label=0.02\u0026tracker_limit=100000\u0026vungle_click_id=5c8f63fb99de0200012544c8\u0026ip_address=45.251.108.248\u0026user_agent=Vungle%2F6.4.0\u0026s2s=0", "https://ingest.vungle.com/tpat?event_id=5c8f63fb99de0200012544c8\u0026device_id=739d87f6-c6bd-46af-a7bc-e5675b7f1f06\u0026event_type=POSTROLL_CLICK", "http://dsp.api.vungle.com/v1/tpat?event_id=5c8f63fb99de0200012544c8\u0026cid=5a2ece4fa9fcaec31300000e\u0026crid=5a394d79341de2f34000005d\u0026ifa=739d87f6-c6bd-46af-a7bc-e5675b7f1f06\u0026test=0\u0026os=iOS\u0026event_type=endcard_click"],
+            "postroll_view": ["https://app.adjust.com/3auatp?campaign=%5BAd%20Credit%5D%20QA-IOS-E2E-Campaign\u0026adgroup=QA-IOS-E2E-Pub-App.5a2ecbffd588e7e21300000e\u0026creative=Local3\u0026idfa=739d87f6-c6bd-46af-a7bc-e5675b7f1f06\u0026label=0.02\u0026tracker_limit=100000\u0026vungle_click_id=5c8f63fb99de0200012544c8\u0026ip_address=45.251.108.248\u0026user_agent=Vungle%2F6.4.0\u0026s2s=0", "https://ingest.vungle.com/tpat?event_id=5c8f63fb99de0200012544c8\u0026device_id=739d87f6-c6bd-46af-a7bc-e5675b7f1f06\u0026event_type=POSTROLL_VIEW", "http://dsp.api.vungle.com/v1/tpat?event_id=5c8f63fb99de0200012544c8\u0026cid=5a2ece4fa9fcaec31300000e\u0026crid=5a394d79341de2f34000005d\u0026ifa=739d87f6-c6bd-46af-a7bc-e5675b7f1f06\u0026test=0\u0026os=iOS\u0026event_type=endcard_view"]
+            },
+            "delay": 0,
+            "showClose": 2,
+            "showCloseIncentivized": 2,
+            "countdown": 4,
+            "url": "${videoURL}",
+            "videoWidth": 1280,
+            "videoHeight": 720,
+            "md5": "fake_md5",
+            "postBundle": "${postBundle}",
+            "cta_overlay": {
+            "enabled": false,
+            "show_onclick": false,
+            "time_enabled": 0,
+            "time_show": 0,
+            "click_area": 1
+            },
+            "callToActionDest": "https://itunes.apple.com/us/app/apple-tv-remote/id1096834193?mt=8",
+            "callToActionUrl": "https://itunes.apple.com/us/app/apple-tv-remote/id1096834193?mt=8",
+            "adType": "vungle_local",
+            "ad_market_id": "1096834193",
+            "chk": "fake_chk",
+            "retryCount": 3,
+            "asyncThreshold": 40,
+            "ad_token": "eyJjYW1wYWlnbiI6IjVhMmVjZTRmYTlmY2FlYzMxMzAwMDAwZXw1YTM5NGQ3OTM0MWRlMmYzNDAwMDAwNWR8ZGF0YXNjaS0tYmxyXzIwMTgwOTA4X2NwX2N0c19kbV9nZHByX2V4cGxvcmUwNF9fNC42OS4xLWV4cGVyLWhvdXJvZmRheS1kbS1nZHByLS1zdWNjZXNzLS1tZWlzdGVyfDVjOGY2M2ZiOTlkZTAyMDAwMTI1NDRjOCJ9",
+            "video_object_id": "5c34f7399f418e6ef440742d",
+            "requires_sideloading": false,
+            "bid_token": "bi7m7v3apjnvok02dlag"
+            }
+            }]
+}

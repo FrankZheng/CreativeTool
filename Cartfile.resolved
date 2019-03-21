@@ -1,1 +1,2 @@
+github "ZipArchive/ZipArchive" "v2.1.4"
 github "swisspol/GCDWebServer" "3.5.2"

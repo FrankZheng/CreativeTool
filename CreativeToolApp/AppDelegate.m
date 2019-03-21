@@ -5,15 +5,12 @@
 //  Created by frank.zheng on 2019/3/5.
 //  Copyright © 2019 Vungle Inc. All rights reserved.
 //
-#import <GCDWebServers/GCDWebServer.h>
-#import <GCDWebServers/GCDWebServerDataResponse.h>
-#import <GCDWebServers/GCDWebUploader.h>
-
 #import "AppDelegate.h"
+#import "WebServer.h"
+#import "ResourceManager.h"
+#import "SDKManager.h"
 
 @interface AppDelegate ()
-@property(nonatomic, strong) GCDWebServer *webServer;
-@property(nonatomic, strong) GCDWebUploader *webUploader;
 
 @end
 
@@ -23,48 +20,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     // Create server
+    ResourceManager *resourceManager = [ResourceManager sharedInstance];
+    [resourceManager setup];
     
-#if 1
-    _webServer = [[GCDWebServer alloc] init];
-    NSString *indexFile = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"];
-    NSString *indexStr = [NSString stringWithContentsOfFile:indexFile
-                                              encoding:NSUTF8StringEncoding error:NULL];
+    WebServer *webServer = [WebServer sharedInstance];
+    webServer.webStaticFolderPath = resourceManager.webStaticFolderPath;
+    [webServer setup];
     
-    [_webServer addDefaultHandlerForMethod:@"GET"
-                              requestClass:[GCDWebServerRequest class]
-                              processBlock:^GCDWebServerResponse *(GCDWebServerRequest* request) {
-                                  
-                                  return [GCDWebServerDataResponse responseWithHTML:indexStr];
-                                  
-                              }];
-    
-    [_webServer addHandlerForMethod:@"POST"
-                         path:@"/upload"
-                 requestClass:[GCDWebServerMultiPartFormRequest class]
-                 processBlock:^GCDWebServerResponse*(GCDWebServerRequest* request) {
-                     GCDWebServerMultiPartFormRequest *req = (GCDWebServerMultiPartFormRequest*)request;
-                     for (GCDWebServerMultiPartFile* file in req.files) {
-                         NSLog(@"%@, %@, %@", file.controlName, file.contentType, file.fileName);
-                     }
-                     return [GCDWebServerDataResponse responseWithHTML:@"<html><body>Uploaded</body></html>"];
-                 }];
-    
-    // Start server on port 8080
-    [_webServer startWithPort:8090 bonjourName:nil];
-    NSLog(@"Visit %@ in your web browser", _webServer.serverURL);
-#endif
-    
-#if 0
-    NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-    _webUploader = [[GCDWebUploader alloc] initWithUploadDirectory:documentsPath];
-    [_webUploader start];
-    NSLog(@"Visit %@ in your web browser", _webUploader.serverURL);
-#endif
+    SDKManager *sdkManager = [SDKManager sharedInstance];
+    sdkManager.serverURL = webServer.serverURL;
     
     return YES;
  
 }
-
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
