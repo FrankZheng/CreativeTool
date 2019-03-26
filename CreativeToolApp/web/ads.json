@@ -5,7 +5,7 @@
             "id": "5c8f63fb99de0200012544c8",
             "campaign": "5a2ece4fa9fcaec31300000e|5a394d79341de2f34000005d|datasci--blr_20180908_cp_cts_dm_gdpr_explore04__4.69.1-exper-hourofday-dm-gdpr--success--meister|5c8f63fb99de0200012544c8",
             "app_id": "$0${\"app_id\":\"5a2ecc62d588e7e213000112\",\"eventID\":\"5c8f63fb99de0200012544c8\"}",
-            "expiry": 1553505915,
+            "expiry": ${expiry},
             "tpat": {
             "moat": {
             "is_enabled": false,

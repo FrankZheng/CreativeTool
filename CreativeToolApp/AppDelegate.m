@@ -25,6 +25,7 @@
     
     WebServer *webServer = [WebServer sharedInstance];
     webServer.webStaticFolderPath = resourceManager.webStaticFolderPath;
+    webServer.webUploadFolderPath = resourceManager.webUploadFolderPath;
     [webServer setup];
     
     SDKManager *sdkManager = [SDKManager sharedInstance];

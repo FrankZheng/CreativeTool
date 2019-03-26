@@ -7,7 +7,8 @@
 //
 
 #import "SDKManager.h"
-#import <VungleSDK/VungleSDK.h>
+//#import <VungleSDK/VungleSDK.h>
+@import VungleSDKDynamic;
 #import "AppConfig.h"
 
 @interface SDKManager() <VungleSDKDelegate, VungleSDKLogger>

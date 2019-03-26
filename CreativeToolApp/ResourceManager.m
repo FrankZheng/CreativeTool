@@ -19,6 +19,15 @@
     return instance;
 }
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        //only permit one end card for now
+        _uploadEndcardMaxCount = 1;
+    }
+    return self;
+}
+
 -(void)setup {
     //copy the resources in the app bundle to documents for later use
     //copy web/static folder to Application Support/web/static folder
@@ -26,19 +35,28 @@
     NSString *supportPath = [NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) lastObject];
     NSString *webFolderPath = [supportPath stringByAppendingPathComponent:@"web"];
     _webStaticFolderPath = [webFolderPath stringByAppendingPathComponent:@"static"];
+    _webUploadFolderPath = [webFolderPath stringByAppendingPathComponent:@"upload"];
     BOOL isFolder = NO;
     if (![fm fileExistsAtPath:webFolderPath isDirectory:&isFolder]) {
         //create web folder
         NSError *error = nil;
         if ([fm createDirectoryAtPath:webFolderPath withIntermediateDirectories:NO attributes:nil error:&error]) {
+            //copy static folder in the app bundle to web/static
             NSString *staticPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"static"];
             if (![fm copyItemAtPath:staticPath toPath:_webStaticFolderPath error:&error]) {
-                NSLog(@"failed to copy web static resources");
+                NSLog(@"Failed to copy web static resources");
+            }
+            
+            //create upload folder web/upload
+            if(![fm createDirectoryAtPath:_webUploadFolderPath withIntermediateDirectories:NO attributes:nil error:&error]) {
+                NSLog(@"Failed to create web upload folder, %@", error);
             }
         } else {
             NSLog(@"Failed to create web folder, %@, %@", webFolderPath, error);
         }
     }
+    
+    
     
 #if 0
     NSFileManager *fm = [NSFileManager defaultManager];
@@ -72,6 +90,48 @@
 #endif
 
 }
+
+- (NSArray<NSString *>*) uploadEndcardNames {
+    NSFileManager *fm = [NSFileManager defaultManager];
+    BOOL isFolder = NO;
+    NSMutableArray *names = [NSMutableArray array];
+    if ([fm fileExistsAtPath:_webUploadFolderPath isDirectory:&isFolder] && isFolder) {
+        //list all files here
+        NSError *error = nil;
+        NSArray *filenameList = [fm contentsOfDirectoryAtPath:_webUploadFolderPath error:&error];
+        if(filenameList && error == nil) {
+            for(NSString *filename in filenameList) {
+                NSString *filePath = [_webUploadFolderPath stringByAppendingPathComponent:filename];
+                if ([fm fileExistsAtPath:filePath isDirectory:&isFolder] && !isFolder) {
+                    [names addObject:filename];
+                }
+            }
+        }
+    }
+    return [names copy];
+}
+
+//Remove all uploaded creatives
+-(void)cleanUpUploadFolder {
+    //for now, clean all end card in the upload foler
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSError *error = nil;
+    NSArray *filenameList = [fm contentsOfDirectoryAtPath:_webUploadFolderPath error:&error];
+    BOOL isFolder = NO;
+    if(filenameList && error == nil) {
+        for(NSString *filename in filenameList) {
+            NSString *filePath = [_webUploadFolderPath stringByAppendingPathComponent:filename];
+            if ([fm fileExistsAtPath:filePath isDirectory:&isFolder] && !isFolder) {
+                if (![fm removeItemAtPath:filePath error:&error]) {
+                    NSLog(@"Failed to remove %@, %@", filePath, error);
+                }
+            }
+        }
+    }
+}
+
+
+
 
 
 @end

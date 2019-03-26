@@ -11,10 +11,17 @@
 //This class used to manage the static resources for web content
 @interface ResourceManager : NSObject
 @property(nonatomic, readonly) NSString *webStaticFolderPath;
+@property(nonatomic, readonly) NSString *webUploadFolderPath;
+@property(nonatomic, readonly) NSArray<NSString *> *uploadEndcardNames;
+@property(nonatomic, assign) NSInteger uploadEndcardMaxCount;
 
 
 +(instancetype)sharedInstance;
 
 -(void)setup;
+
+//remove all uploaded creatives
+-(void)cleanUpUploadFolder;
+
 
 @end
