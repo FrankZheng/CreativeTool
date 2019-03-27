@@ -13,7 +13,7 @@
 #import "ResourceManager.h"
 
 
-@interface ViewController () <AdDelegate, UploadDelegate>
+@interface ViewController () <AdDelegate, WebServerDelegate>
 @property(nonatomic, weak) IBOutlet UITextView *instructionTv;
 @property(nonatomic, weak) IBOutlet UIButton *loadBtn;
 @property(nonatomic, weak) IBOutlet UIButton *playBtn;
@@ -33,16 +33,12 @@
     _sdkManager.adDelegate = self;
     _webServer = [WebServer sharedInstance];
     _resourceManager = [ResourceManager sharedInstance];
-    _webServer.uploadDelegate = self;
-    
-    //set the instruction text
-    NSString *txtFmt = @"Please open your brower on your computer and visit following url to upload creative bundle files(.zip). \n%@";
-    [_instructionTv setText:[NSString stringWithFormat:txtFmt, _webServer.serverURL.absoluteString]];
-    
-    [_pIDLabel setText:[AppConfig placementId]];
+    _webServer.delegate = self;
     
     //hide all controls for now
     [_loadBtn setHidden:YES];
+    
+    [self configInstructionText];
     
     NSArray *uploadEndcards = _resourceManager.uploadEndcardNames;
     if ([uploadEndcards count] > 0) {
@@ -69,6 +65,15 @@
     [_sdkManager playAd:self];
 }
 
+- (void)configInstructionText {
+    NSString *serverURL = _webServer.serverURL.absoluteString;
+    if (serverURL.length > 0) {
+        NSString *txtFmt = @"Please open your brower on your computer and visit following url to upload creative bundle files(.zip). \n%@";
+        [_instructionTv setText:[NSString stringWithFormat:txtFmt, serverURL]];
+    } else {
+        [_instructionTv setText:@""];
+    }
+}
 
 
 - (void)didReceiveMemoryWarning {
@@ -92,8 +97,8 @@
 
 -(void)onAdDidClose {
     _playingAd = NO;
-    [_playBtn setEnabled:NO];
-    [_loadBtn setEnabled:YES];
+    //[_playBtn setEnabled:NO];
+    //[_loadBtn setEnabled:YES];
     
     //could load ad again
 }
@@ -105,9 +110,14 @@
         __weak __typeof(self) weakSelf = self;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [weakSelf.pIDLabel setText:zipName];
+            [weakSelf.pIDLabel setHidden:NO];
         });
         
     }
+}
+
+-(void)onServerStarted {
+    [self configInstructionText];
 }
 
 

@@ -121,6 +121,11 @@
     [_webServer startWithPort:_portNumber bonjourName:nil];
     NSLog(@"Visit %@ in your web browser", _webServer.serverURL);
     
+    _started = YES;
+    if (_delegate != nil && [_delegate respondsToSelector:@selector(onServerStarted)]) {
+        [_delegate onServerStarted];
+    }
+    
 }
 
 - (NSURL *)serverURL {
@@ -188,8 +193,8 @@
     //save the uploaded end card name
     _uploadedEndcardName = uploadedFileName;
     
-    if(_uploadDelegate != nil && [_uploadDelegate respondsToSelector:@selector(onEndcardUploaded:)]) {
-        [_uploadDelegate onEndcardUploaded:_uploadedEndcardName];
+    if(_delegate != nil && [_delegate respondsToSelector:@selector(onEndcardUploaded:)]) {
+        [_delegate onEndcardUploaded:_uploadedEndcardName];
     }
     
 #if 0

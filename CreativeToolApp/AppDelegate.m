@@ -20,6 +20,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     // Create server
+    __weak typeof(self) weakSelf = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [weakSelf setupAll];
+    });
+    
+    return YES;
+ 
+}
+
+- (void)setupAll {
     ResourceManager *resourceManager = [ResourceManager sharedInstance];
     [resourceManager setup];
     
@@ -31,8 +41,6 @@
     SDKManager *sdkManager = [SDKManager sharedInstance];
     sdkManager.serverURL = webServer.serverURL;
     
-    return YES;
- 
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

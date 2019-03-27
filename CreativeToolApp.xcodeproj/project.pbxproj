@@ -20,7 +20,6 @@
 		FCBC2D53222F966E0095BA20 /* ok.json in Resources */ = {isa = PBXBuildFile; fileRef = FCBC2D52222F966E0095BA20 /* ok.json */; };
 		FCBC2D55222F96970095BA20 /* ads.json in Resources */ = {isa = PBXBuildFile; fileRef = FCBC2D54222F96970095BA20 /* ads.json */; };
 		FCBC2D5F2230BBD70095BA20 /* static in Resources */ = {isa = PBXBuildFile; fileRef = FCBC2D5E2230BBD70095BA20 /* static */; };
-		FCBC2D612230CBCC0095BA20 /* ads1.json in Resources */ = {isa = PBXBuildFile; fileRef = FCBC2D602230CBCC0095BA20 /* ads1.json */; };
 		FCBC2D6922408A180095BA20 /* VungleSDKDynamic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCBC2D6822408A180095BA20 /* VungleSDKDynamic.framework */; };
 		FCFFDF2422436B3900D443F5 /* WebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFFDF2322436B3900D443F5 /* WebServer.m */; };
 		FCFFDF272243701200D443F5 /* AppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFFDF262243701200D443F5 /* AppConfig.m */; };
@@ -61,7 +60,6 @@
 		FCBC2D52222F966E0095BA20 /* ok.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ok.json; sourceTree = "<group>"; };
 		FCBC2D54222F96970095BA20 /* ads.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ads.json; sourceTree = "<group>"; };
 		FCBC2D5E2230BBD70095BA20 /* static */ = {isa = PBXFileReference; lastKnownFileType = folder; path = static; sourceTree = "<group>"; };
-		FCBC2D602230CBCC0095BA20 /* ads1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ads1.json; sourceTree = "<group>"; };
 		FCBC2D66224085F40095BA20 /* VungleSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VungleSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCBC2D6822408A180095BA20 /* VungleSDKDynamic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VungleSDKDynamic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCFFDF2222436B3900D443F5 /* WebServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebServer.h; sourceTree = "<group>"; };
@@ -147,7 +145,6 @@
 				FCBC2D50222F79CE0095BA20 /* config.json */,
 				FCBC2D52222F966E0095BA20 /* ok.json */,
 				FCBC2D54222F96970095BA20 /* ads.json */,
-				FCBC2D602230CBCC0095BA20 /* ads1.json */,
 			);
 			path = web;
 			sourceTree = "<group>";
@@ -212,7 +209,6 @@
 			files = (
 				FCBC2D3A222E66ED0095BA20 /* LaunchScreen.storyboard in Resources */,
 				FCBC2D55222F96970095BA20 /* ads.json in Resources */,
-				FCBC2D612230CBCC0095BA20 /* ads1.json in Resources */,
 				FCBC2D4B222E7C670095BA20 /* index.html in Resources */,
 				FCBC2D51222F79CE0095BA20 /* config.json in Resources */,
 				FCBC2D53222F966E0095BA20 /* ok.json in Resources */,

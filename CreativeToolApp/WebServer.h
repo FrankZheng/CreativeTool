@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol UploadDelegate
+@protocol WebServerDelegate
 @optional
+
+-(void)onServerStarted;
 
 -(void)onEndcardUploaded:(NSString *)zipName;
 
@@ -20,7 +22,8 @@
 @property(nonatomic, assign) NSInteger portNumber;
 @property(nonatomic, copy) NSString *webStaticFolderPath;
 @property(nonatomic, copy) NSString *webUploadFolderPath;
-@property(nonatomic, weak) NSObject<UploadDelegate> *uploadDelegate;
+@property(nonatomic, weak) NSObject<WebServerDelegate> *delegate;
+@property(nonatomic, readonly, getter=isStarted) BOOL started;
 
 
 +(instancetype)sharedInstance;
