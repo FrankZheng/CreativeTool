@@ -45,8 +45,8 @@
         _portNumber = 8091;
         _staticBasePath = @"static/";
         _uploadBasePath = @"upload/";
-        _defaultEndcardName = @"endcard.zip";
-        _defaultVideoName = @"countdown_video.mp4";
+        _defaultEndcardName = @"res/endcard.zip";
+        _defaultVideoName = @"res/countdown_video.mp4";
         _resourceManager = [ResourceManager sharedInstance];
         
         //just use the first one for now
@@ -104,18 +104,23 @@
     
     //static resources
     //base path
+#if DEBUG
+    NSUInteger cacheAge = 0;
+#else
+    NSUInteger cacheAge = 3600;
+#endif
+    
     [_webServer addGETHandlerForBasePath:[NSString stringWithFormat:@"/%@", _staticBasePath]
                            directoryPath:self.webStaticFolderPath
                            indexFilename:nil
-                                cacheAge:3600
+                                cacheAge:cacheAge
                       allowRangeRequests:YES];
     
     [_webServer addGETHandlerForBasePath:[NSString stringWithFormat:@"/%@", _uploadBasePath]
                            directoryPath:self.webUploadFolderPath
                            indexFilename:nil
-                                cacheAge:3600
+                                cacheAge:cacheAge
                       allowRangeRequests:YES];
-    
     
     
     [_webServer startWithPort:_portNumber bonjourName:nil];
@@ -154,7 +159,7 @@
 
 //for home page, "/" or "/index"
 - (GCDWebServerResponse *)homePageHandler:(GCDWebServerRequest*)req {
-    NSString *indexFile = [[NSBundle mainBundle] pathForResource:@"index" ofType:@"html"];
+    NSString *indexFile = [_webStaticFolderPath stringByAppendingPathComponent:@"index.html"];
     NSString *indexStr = [NSString stringWithContentsOfFile:indexFile
                                                    encoding:NSUTF8StringEncoding error:NULL];
     return [GCDWebServerDataResponse responseWithHTML:indexStr];
@@ -176,6 +181,7 @@
     NSString *targetPath = [_webUploadFolderPath stringByAppendingPathComponent:uploadedFileName];
     NSFileManager *fm = [NSFileManager defaultManager];
     NSError *error = nil;
+    
 #if 0
     if( [fm fileExistsAtPath:targetPath]) {
         if(![fm removeItemAtPath:targetPath error:&error]) {

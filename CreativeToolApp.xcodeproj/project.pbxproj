@@ -14,7 +14,6 @@
 		FCBC2D3A222E66ED0095BA20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCBC2D38222E66ED0095BA20 /* LaunchScreen.storyboard */; };
 		FCBC2D3D222E66ED0095BA20 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBC2D3C222E66ED0095BA20 /* main.m */; };
 		FCBC2D47222E6E9E0095BA20 /* GCDWebServers.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FCBC2D44222E6C0A0095BA20 /* GCDWebServers.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		FCBC2D4B222E7C670095BA20 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = FCBC2D4A222E7C670095BA20 /* index.html */; };
 		FCBC2D4F222F623D0095BA20 /* ZipArchive.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FCBC2D4C222F62220095BA20 /* ZipArchive.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FCBC2D51222F79CE0095BA20 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = FCBC2D50222F79CE0095BA20 /* config.json */; };
 		FCBC2D53222F966E0095BA20 /* ok.json in Resources */ = {isa = PBXBuildFile; fileRef = FCBC2D52222F966E0095BA20 /* ok.json */; };
@@ -54,7 +53,6 @@
 		FCBC2D3B222E66ED0095BA20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCBC2D3C222E66ED0095BA20 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FCBC2D44222E6C0A0095BA20 /* GCDWebServers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GCDWebServers.framework; path = Carthage/Build/iOS/GCDWebServers.framework; sourceTree = "<group>"; };
-		FCBC2D4A222E7C670095BA20 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		FCBC2D4C222F62220095BA20 /* ZipArchive.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZipArchive.framework; path = Carthage/Build/iOS/ZipArchive.framework; sourceTree = "<group>"; };
 		FCBC2D50222F79CE0095BA20 /* config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 		FCBC2D52222F966E0095BA20 /* ok.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ok.json; sourceTree = "<group>"; };
@@ -141,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				FCBC2D5E2230BBD70095BA20 /* static */,
-				FCBC2D4A222E7C670095BA20 /* index.html */,
 				FCBC2D50222F79CE0095BA20 /* config.json */,
 				FCBC2D52222F966E0095BA20 /* ok.json */,
 				FCBC2D54222F96970095BA20 /* ads.json */,
@@ -209,7 +206,6 @@
 			files = (
 				FCBC2D3A222E66ED0095BA20 /* LaunchScreen.storyboard in Resources */,
 				FCBC2D55222F96970095BA20 /* ads.json in Resources */,
-				FCBC2D4B222E7C670095BA20 /* index.html in Resources */,
 				FCBC2D51222F79CE0095BA20 /* config.json in Resources */,
 				FCBC2D53222F966E0095BA20 /* ok.json in Resources */,
 				FCBC2D37222E66ED0095BA20 /* Assets.xcassets in Resources */,

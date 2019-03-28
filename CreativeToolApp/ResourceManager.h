@@ -18,7 +18,7 @@
 
 +(instancetype)sharedInstance;
 
--(void)setup;
+-(BOOL)setup;
 
 //remove all uploaded creatives
 -(void)cleanUpUploadFolder;
