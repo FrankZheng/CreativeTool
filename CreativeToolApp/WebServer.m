@@ -127,9 +127,6 @@
     NSLog(@"Visit %@ in your web browser", _webServer.serverURL);
     
     _started = YES;
-    if (_delegate != nil && [_delegate respondsToSelector:@selector(onServerStarted)]) {
-        [_delegate onServerStarted];
-    }
     
 }
 

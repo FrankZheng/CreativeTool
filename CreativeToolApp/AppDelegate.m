@@ -6,9 +6,7 @@
 //  Copyright © 2019 Vungle Inc. All rights reserved.
 //
 #import "AppDelegate.h"
-#import "WebServer.h"
-#import "ResourceManager.h"
-#import "SDKManager.h"
+#import "AppInitializer.h"
 
 @interface AppDelegate ()
 
@@ -20,27 +18,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     // Create server
-    __weak typeof(self) weakSelf = self;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [weakSelf setupAll];
-    });
+    [[AppInitializer sharedInstance] start];
     
     return YES;
  
-}
-
-- (void)setupAll {
-    ResourceManager *resourceManager = [ResourceManager sharedInstance];
-    [resourceManager setup];
-    
-    WebServer *webServer = [WebServer sharedInstance];
-    webServer.webStaticFolderPath = resourceManager.webStaticFolderPath;
-    webServer.webUploadFolderPath = resourceManager.webUploadFolderPath;
-    [webServer setup];
-    
-    SDKManager *sdkManager = [SDKManager sharedInstance];
-    sdkManager.serverURL = webServer.serverURL;
-    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -24,6 +24,7 @@
 		FCFFDF272243701200D443F5 /* AppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFFDF262243701200D443F5 /* AppConfig.m */; };
 		FCFFDF2A2243709A00D443F5 /* ResourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFFDF292243709A00D443F5 /* ResourceManager.m */; };
 		FCFFDF2D224371CF00D443F5 /* SDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFFDF2C224371CF00D443F5 /* SDKManager.m */; };
+		FCFFDF30224DB37800D443F5 /* AppInitializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFFDF2F224DB37700D443F5 /* AppInitializer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,6 +69,8 @@
 		FCFFDF292243709A00D443F5 /* ResourceManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResourceManager.m; sourceTree = "<group>"; };
 		FCFFDF2B224371CF00D443F5 /* SDKManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDKManager.h; sourceTree = "<group>"; };
 		FCFFDF2C224371CF00D443F5 /* SDKManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDKManager.m; sourceTree = "<group>"; };
+		FCFFDF2E224DB37700D443F5 /* AppInitializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppInitializer.h; sourceTree = "<group>"; };
+		FCFFDF2F224DB37700D443F5 /* AppInitializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppInitializer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				FCFFDF292243709A00D443F5 /* ResourceManager.m */,
 				FCFFDF2B224371CF00D443F5 /* SDKManager.h */,
 				FCFFDF2C224371CF00D443F5 /* SDKManager.m */,
+				FCFFDF2E224DB37700D443F5 /* AppInitializer.h */,
+				FCFFDF2F224DB37700D443F5 /* AppInitializer.m */,
 			);
 			path = CreativeToolApp;
 			sourceTree = "<group>";
@@ -221,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCFFDF30224DB37800D443F5 /* AppInitializer.m in Sources */,
 				FCBC2D32222E66EC0095BA20 /* ViewController.m in Sources */,
 				FCFFDF2D224371CF00D443F5 /* SDKManager.m in Sources */,
 				FCFFDF2A2243709A00D443F5 /* ResourceManager.m in Sources */,

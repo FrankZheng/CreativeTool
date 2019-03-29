@@ -11,13 +11,16 @@
 #import "WebServer.h"
 #import "AppConfig.h"
 #import "ResourceManager.h"
+#import "AppInitializer.h"
 
 
-@interface ViewController () <AdDelegate, WebServerDelegate>
+@interface ViewController () <AppInitializerDelegate, SDKDelegate, WebServerDelegate>
 @property(nonatomic, weak) IBOutlet UITextView *instructionTv;
-@property(nonatomic, weak) IBOutlet UIButton *loadBtn;
 @property(nonatomic, weak) IBOutlet UIButton *playBtn;
 @property(nonatomic, weak) IBOutlet UILabel *pIDLabel;
+@property(nonatomic, weak) IBOutlet UILabel *serverURLLabel;
+
+@property(nonatomic, strong) AppInitializer *appInitializer;
 @property(nonatomic, strong) SDKManager *sdkManager;
 @property(nonatomic, strong) WebServer *webServer;
 @property(nonatomic, strong) ResourceManager *resourceManager;
@@ -29,32 +32,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    //hide all controls for now
+    [_playBtn setHidden:YES];
+    [_pIDLabel setHidden:YES];
+    
+    _appInitializer = [AppInitializer sharedInstance];
+    if(_appInitializer.isInitialized) {
+        [self setup];
+    } else {
+        [_appInitializer addDelegate:self];
+    }
+}
+
+- (void)setup {
     _sdkManager = [SDKManager sharedInstance];
-    _sdkManager.adDelegate = self;
+    _sdkManager.delegate = self;
     _webServer = [WebServer sharedInstance];
     _resourceManager = [ResourceManager sharedInstance];
     _webServer.delegate = self;
-    
-    //hide all controls for now
-    [_loadBtn setHidden:YES];
-    
     [self configInstructionText];
+    [self showUploadEndcards];
+
     
-    NSArray *uploadEndcards = _resourceManager.uploadEndcardNames;
-    if ([uploadEndcards count] > 0) {
-        //has uploaded end cards, load it for now
-        [_pIDLabel setText:[uploadEndcards firstObject]];
-        [_playBtn setEnabled:NO];
-        
-        //Here need think about clear cache later
-        [_sdkManager loadAd];
-        
-    } else {
-        //hide all controls for now
-        [_loadBtn setHidden:YES];
-        [_playBtn setHidden:YES];
-        [_pIDLabel setHidden:YES];
-    }
 }
 
 - (IBAction)loadAd:(id)sender {
@@ -65,13 +65,30 @@
     [_sdkManager playAd:self];
 }
 
+- (void)showUploadEndcards {
+    if(_resourceManager.didSetup) {
+        NSArray *uploadEndcards = _resourceManager.uploadEndcardNames;
+        if ([uploadEndcards count] > 0) {
+            //has uploaded end cards, load it for now
+            [_pIDLabel setHidden:NO];
+            [_pIDLabel setText:[uploadEndcards firstObject]];
+            [_playBtn setEnabled:NO];
+            
+            //Here need think about clear cache later
+            [_sdkManager loadAd];
+        }
+    }
+}
+
 - (void)configInstructionText {
+    NSString *txt = @"Please open the browser on your computer and visit following url to upload creatives.";
+    [_instructionTv setText:txt];
+    
     NSString *serverURL = _webServer.serverURL.absoluteString;
     if (serverURL.length > 0) {
-        NSString *txtFmt = @"Please open your brower on your computer and visit following url to upload creative bundle files(.zip). \n%@";
-        [_instructionTv setText:[NSString stringWithFormat:txtFmt, serverURL]];
+        _serverURLLabel.text = serverURL;
     } else {
-        [_instructionTv setText:@""];
+        _serverURLLabel.text = serverURL;
     }
 }
 
@@ -80,30 +97,36 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 #pragma mark - AdDelegate methods
 
--(void)onAdLoaded:(NSError *)error {
+- (void)onAdLoaded:(NSError *)error {
     if (error == nil) {
         [_playBtn setHidden:NO];
         [_playBtn setEnabled:YES];
-        [_loadBtn setEnabled:NO];
     }
+    
+    //TODO: handle errors later
 }
 
--(void)onAdDidPlay {
+- (void)onAdDidPlay {
     _playingAd = YES;
     [_playBtn setEnabled:NO];
 }
 
--(void)onAdDidClose {
+- (void)onAdDidClose {
     _playingAd = NO;
-    //[_playBtn setEnabled:NO];
-    //[_loadBtn setEnabled:YES];
     
-    //could load ad again
+    //Could load ad again, and next time play need load at first
+    //Or just reload ads here, if there is new end card uploaded, reload ad that time.
+    //So here we must figure out how to clean the cache
+    dispatch_async(dispatch_get_main_queue(),  ^{
+        [self loadAd:nil];
+    });
 }
 
--(void)onEndcardUploaded:(NSString *)zipName {
+- (void)onEndcardUploaded:(NSString *)zipName {
     if (!_playingAd) {
         //there is a end card uploaded, need reload ad if not playing
         [_sdkManager loadAd];
@@ -112,13 +135,17 @@
             [weakSelf.pIDLabel setText:zipName];
             [weakSelf.pIDLabel setHidden:NO];
         });
-        
     }
+    
+    //if playing ad or loading ad, need wait to reload ads when it's finished
+    
 }
 
--(void)onServerStarted {
-    [self configInstructionText];
+- (void)appDidInitialize {
+    [self setup];
 }
+
+
 
 
 

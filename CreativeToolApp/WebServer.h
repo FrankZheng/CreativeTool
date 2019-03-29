@@ -11,8 +11,6 @@
 @protocol WebServerDelegate
 @optional
 
--(void)onServerStarted;
-
 -(void)onEndcardUploaded:(NSString *)zipName;
 
 @end

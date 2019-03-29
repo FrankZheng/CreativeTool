@@ -50,7 +50,7 @@
         //create web folder
         NSError *error = nil;
         if (![_fileManager createDirectoryAtPath:webFolderPath
-                     withIntermediateDirectories:NO
+                     withIntermediateDirectories:YES
                                       attributes:nil
                                            error:&error]) {
             NSLog(@"Failed to create web folder, %@, %@", webFolderPath, error);
@@ -74,6 +74,7 @@
     
 #endif
     
+    _didSetup = YES;
     return YES;
 }
 

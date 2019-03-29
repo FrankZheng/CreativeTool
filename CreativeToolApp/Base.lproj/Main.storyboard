@@ -27,24 +27,22 @@
                                     <action selector="playAd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9bw-fu-7fv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1A-pt-SxL">
-                                <rect key="frame" x="230" y="184" width="52" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="LOAD"/>
-                                <connections>
-                                    <action selector="loadAd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5zN-mg-zZq"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Instruction here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Aw8-uO-s2j">
-                                <rect key="frame" x="16" y="35" width="343" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Please open the browser on your computer and visit following url to upload creatives." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aw8-uO-s2j">
+                                <rect key="frame" x="16" y="46" width="343" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSI-8T-uFE">
-                                <rect key="frame" x="16" y="189" width="205" height="24"/>
+                                <rect key="frame" x="16" y="189" width="257" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="http://192.168.1.78:8091" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Fp-Nv-DSn">
+                                <rect key="frame" x="59" y="123" width="256" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -56,9 +54,9 @@
                     </view>
                     <connections>
                         <outlet property="instructionTv" destination="Aw8-uO-s2j" id="pzS-Xj-S47"/>
-                        <outlet property="loadBtn" destination="E1A-pt-SxL" id="5tv-Qn-wnk"/>
                         <outlet property="pIDLabel" destination="tSI-8T-uFE" id="fma-4L-ydw"/>
                         <outlet property="playBtn" destination="Iwj-jk-xkV" id="p8m-Hu-ZWF"/>
+                        <outlet property="serverURLLabel" destination="7Fp-Nv-DSn" id="qvp-1M-tlC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

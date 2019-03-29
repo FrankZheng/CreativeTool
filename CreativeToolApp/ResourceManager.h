@@ -14,6 +14,7 @@
 @property(nonatomic, readonly) NSString *webUploadFolderPath;
 @property(nonatomic, readonly) NSArray<NSString *> *uploadEndcardNames;
 @property(nonatomic, assign) NSInteger uploadEndcardMaxCount;
+@property(nonatomic, readonly) BOOL didSetup;
 
 
 +(instancetype)sharedInstance;

@@ -9,27 +9,32 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@protocol AdDelegate
+@protocol SDKDelegate
 @optional
-
--(void)onAdLoaded:(NSError *)error;
--(void)onAdDidPlay;
--(void)onAdDidClose;
+- (void)sdkDidInitialize;
+- (void)onAdLoaded:(NSError *)error;
+- (void)onAdDidPlay;
+- (void)onAdDidClose;
 
 @end
 
 @interface SDKManager : NSObject
-@property(nonatomic, weak) NSObject<AdDelegate> *adDelegate;
+@property(nonatomic, weak) NSObject<SDKDelegate> *delegate;
 @property(nonatomic, copy) NSURL *serverURL; //for mock the backend server
+@property(nonatomic, readonly, getter=isStarted) BOOL started;
 
-+(instancetype)sharedInstance;
++ (instancetype)sharedInstance;
 
 
-//- (void)start;
+- (void)start;
 
 - (void)loadAd;
 
 - (void)playAd:(UIViewController*)viewController;
+
+- (void)clearCache;
+
+
 
 
 
