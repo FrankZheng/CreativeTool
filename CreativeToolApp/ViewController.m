@@ -99,7 +99,10 @@
 }
 
 
-#pragma mark - AdDelegate methods
+#pragma mark - SDKManagerDelegate methods
+- (void)appDidInitialize {
+    [self setup];
+}
 
 - (void)onAdLoaded:(NSError *)error {
     if (error == nil) {
@@ -118,32 +121,28 @@
 - (void)onAdDidClose {
     _playingAd = NO;
     
-    //Could load ad again, and next time play need load at first
-    //Or just reload ads here, if there is new end card uploaded, reload ad that time.
-    //So here we must figure out how to clean the cache
     dispatch_async(dispatch_get_main_queue(),  ^{
         [self loadAd:nil];
     });
 }
 
+#pragma mark - WebServerDelegate methods
 - (void)onEndcardUploaded:(NSString *)zipName {
     if (!_playingAd) {
-        //there is a end card uploaded, need reload ad if not playing
-        [_sdkManager loadAd];
         __weak __typeof(self) weakSelf = self;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            //there is a end card uploaded, need reload ad if not playing
+            [weakSelf.sdkManager loadAd];
             [weakSelf.pIDLabel setText:zipName];
             [weakSelf.pIDLabel setHidden:NO];
         });
+    } else {
+        //If there is ad playing, just wait ad reloaded after ad did close.
     }
     
-    //if playing ad or loading ad, need wait to reload ads when it's finished
-    
+    //TODO: here need think about what happened if reloading ads for now?
 }
 
-- (void)appDidInitialize {
-    [self setup];
-}
 
 
 

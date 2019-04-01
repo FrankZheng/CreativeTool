@@ -159,7 +159,7 @@
 
 - (void)vungleAdPlayabilityUpdate:(BOOL)isAdPlayable placementID:(nullable NSString *)placementID error:(nullable NSError *)error {
     NSLog(@"vungleAdPlayabilityUpdate:%@ placementID:%@  error:%@", @(isAdPlayable), placementID, error);
-    if (isAdPlayable && [placementID isEqualToString:_placementId]) {
+    if (_sdk.initialized && isAdPlayable && [placementID isEqualToString:_placementId]) {
         if (self.delegate != nil && [self.delegate respondsToSelector:@selector(onAdLoaded:)]) {
             [self.delegate onAdLoaded:nil];
         }
