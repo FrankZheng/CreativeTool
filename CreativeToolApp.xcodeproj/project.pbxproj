@@ -19,7 +19,10 @@
 		FCBC2D53222F966E0095BA20 /* ok.json in Resources */ = {isa = PBXBuildFile; fileRef = FCBC2D52222F966E0095BA20 /* ok.json */; };
 		FCBC2D55222F96970095BA20 /* ads.json in Resources */ = {isa = PBXBuildFile; fileRef = FCBC2D54222F96970095BA20 /* ads.json */; };
 		FCBC2D5F2230BBD70095BA20 /* static in Resources */ = {isa = PBXBuildFile; fileRef = FCBC2D5E2230BBD70095BA20 /* static */; };
-		FCBC2D6922408A180095BA20 /* VungleSDKDynamic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCBC2D6822408A180095BA20 /* VungleSDKDynamic.framework */; };
+		FCC28E002252FCDB00A996B8 /* VunglePostRollWebView+DebugHooks.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC28DFF2252FCDB00A996B8 /* VunglePostRollWebView+DebugHooks.m */; };
+		FCC28E03225325AF00A996B8 /* inject.js in Resources */ = {isa = PBXBuildFile; fileRef = FCC28E02225325AF00A996B8 /* inject.js */; };
+		FCC28E0422532F7200A996B8 /* VungleSDKDynamic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCBC2D6822408A180095BA20 /* VungleSDKDynamic.framework */; };
+		FCC28E0522532F7200A996B8 /* VungleSDKDynamic.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FCBC2D6822408A180095BA20 /* VungleSDKDynamic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FCFFDF2422436B3900D443F5 /* WebServer.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFFDF2322436B3900D443F5 /* WebServer.m */; };
 		FCFFDF272243701200D443F5 /* AppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFFDF262243701200D443F5 /* AppConfig.m */; };
 		FCFFDF2A2243709A00D443F5 /* ResourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FCFFDF292243709A00D443F5 /* ResourceManager.m */; };
@@ -35,6 +38,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				FCBC2D47222E6E9E0095BA20 /* GCDWebServers.framework in Embed Frameworks */,
+				FCC28E0522532F7200A996B8 /* VungleSDKDynamic.framework in Embed Frameworks */,
 				FCBC2D4F222F623D0095BA20 /* ZipArchive.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -61,6 +65,9 @@
 		FCBC2D5E2230BBD70095BA20 /* static */ = {isa = PBXFileReference; lastKnownFileType = folder; path = static; sourceTree = "<group>"; };
 		FCBC2D66224085F40095BA20 /* VungleSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VungleSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCBC2D6822408A180095BA20 /* VungleSDKDynamic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = VungleSDKDynamic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCC28DFE2252FCDB00A996B8 /* VunglePostRollWebView+DebugHooks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VunglePostRollWebView+DebugHooks.h"; sourceTree = "<group>"; };
+		FCC28DFF2252FCDB00A996B8 /* VunglePostRollWebView+DebugHooks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "VunglePostRollWebView+DebugHooks.m"; sourceTree = "<group>"; };
+		FCC28E02225325AF00A996B8 /* inject.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = inject.js; sourceTree = "<group>"; };
 		FCFFDF2222436B3900D443F5 /* WebServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebServer.h; sourceTree = "<group>"; };
 		FCFFDF2322436B3900D443F5 /* WebServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebServer.m; sourceTree = "<group>"; };
 		FCFFDF252243701200D443F5 /* AppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
@@ -78,7 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCBC2D6922408A180095BA20 /* VungleSDKDynamic.framework in Frameworks */,
+				FCC28E0422532F7200A996B8 /* VungleSDKDynamic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +112,7 @@
 		FCBC2D2C222E66EC0095BA20 /* CreativeToolApp */ = {
 			isa = PBXGroup;
 			children = (
+				FCC28E012253259400A996B8 /* js */,
 				FCBC2D49222E7C4B0095BA20 /* web */,
 				FCBC2D2D222E66EC0095BA20 /* AppDelegate.h */,
 				FCBC2D2E222E66EC0095BA20 /* AppDelegate.m */,
@@ -125,6 +133,8 @@
 				FCFFDF2C224371CF00D443F5 /* SDKManager.m */,
 				FCFFDF2E224DB37700D443F5 /* AppInitializer.h */,
 				FCFFDF2F224DB37700D443F5 /* AppInitializer.m */,
+				FCC28DFE2252FCDB00A996B8 /* VunglePostRollWebView+DebugHooks.h */,
+				FCC28DFF2252FCDB00A996B8 /* VunglePostRollWebView+DebugHooks.m */,
 			);
 			path = CreativeToolApp;
 			sourceTree = "<group>";
@@ -149,6 +159,14 @@
 				FCBC2D54222F96970095BA20 /* ads.json */,
 			);
 			path = web;
+			sourceTree = "<group>";
+		};
+		FCC28E012253259400A996B8 /* js */ = {
+			isa = PBXGroup;
+			children = (
+				FCC28E02225325AF00A996B8 /* inject.js */,
+			);
+			path = js;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCBC2D3A222E66ED0095BA20 /* LaunchScreen.storyboard in Resources */,
+				FCC28E03225325AF00A996B8 /* inject.js in Resources */,
 				FCBC2D55222F96970095BA20 /* ads.json in Resources */,
 				FCBC2D51222F79CE0095BA20 /* config.json in Resources */,
 				FCBC2D53222F966E0095BA20 /* ok.json in Resources */,
@@ -230,6 +249,7 @@
 				FCBC2D32222E66EC0095BA20 /* ViewController.m in Sources */,
 				FCFFDF2D224371CF00D443F5 /* SDKManager.m in Sources */,
 				FCFFDF2A2243709A00D443F5 /* ResourceManager.m in Sources */,
+				FCC28E002252FCDB00A996B8 /* VunglePostRollWebView+DebugHooks.m in Sources */,
 				FCBC2D3D222E66ED0095BA20 /* main.m in Sources */,
 				FCBC2D2F222E66EC0095BA20 /* AppDelegate.m in Sources */,
 				FCFFDF272243701200D443F5 /* AppConfig.m in Sources */,
@@ -310,7 +330,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -362,7 +382,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -374,13 +394,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GTA9LK7P23;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Vungle632",
 				);
 				INFOPLIST_FILE = CreativeToolApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -397,13 +418,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GTA9LK7P23;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)/Vungle632",
 				);
 				INFOPLIST_FILE = CreativeToolApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
