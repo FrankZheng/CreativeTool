@@ -9,11 +9,18 @@
     },
     "placements":[
                   {
-                  "id":"5b523f9c59bcfb5e6830b782",
-                  "reference_id":"LOCAL01",
-                  "is_auto_cached":false,
-                  "is_incentivized":false,
-                  "supported_ad_formats":["vungle_local"]
+                      "id":"5b523f9c59bcfb5e6830b783",
+                      "reference_id":"DEFAULT01",
+                      "is_auto_cached":true,
+                      "is_incentivized":false,
+                      "supported_ad_formats":["vungle_local"]
+                  },
+                  {
+                      "id":"5b523f9c59bcfb5e6830b782",
+                      "reference_id":"LOCAL01",
+                      "is_auto_cached":false,
+                      "is_incentivized":false,
+                      "supported_ad_formats":["vungle_local"]
                   }
                   ],
     "config":{

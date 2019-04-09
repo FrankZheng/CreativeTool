@@ -44,7 +44,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _sdk = [VungleSDK sharedSDK];
+        //_sdk = [VungleSDK sharedSDK];
         _placementId = [AppConfig placementId];
         _appId = [AppConfig appId];
         _queue = [NSMutableArray array];
@@ -54,16 +54,29 @@
 
 - (void)start {
     //initialize SDK
-    if (!_sdk.isInitialized) {
+    if (!_sdk || !_sdk.isInitialized) {
         //if sdk not initialized, try to initialize
+        //should set endpoint before sdk instantiation
+        //It's tricky, but needed for 5.3.2 version
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *url = self.serverURL.absoluteString;
+        if([url characterAtIndex:url.length-1] == '/') {
+            url = [url substringWithRange:NSMakeRange(0,url.length-1)];
+        }
+        [defaults setObject:url forKey:@"vungle.api_endpoint"];
+        
+        _sdk = [VungleSDK sharedSDK];
         [_sdk setLoggingEnabled:YES];
         [_sdk attachLogger:self];
         _sdk.delegate = self;
         
+        [defaults setBool:YES forKey:@"vungle.network_logging"];
+
+        [defaults synchronize];
         
-        [[NSUserDefaults standardUserDefaults] setObject:self.serverURL.absoluteString forKey:@"vungle.api_endpoint"];
         NSError *error = nil;
-        if (![_sdk startWithAppId:_appId error:&error]) {
+        NSArray *placements = @[_placementId];
+        if (![_sdk startWithAppId:_appId placements:placements error:&error]) {
             NSLog(@"Failed to initialize sdk, %@", error);
         }
     }
@@ -157,6 +170,17 @@
     NSLog(@"vungleSDKFailedToInitializeWithError, %@", error);
 }
 
+- (void)vungleAdPlayabilityUpdate:(BOOL)isAdPlayable placementID:(nullable NSString *)placementID {
+    NSLog(@"vungleAdPlayabilityUpdate:%@ placementID:%@", @(isAdPlayable), placementID);
+    if (_sdk.initialized && isAdPlayable && [placementID isEqualToString:_placementId]) {
+        if (self.delegate != nil && [self.delegate respondsToSelector:@selector(onAdLoaded:)]) {
+            [self.delegate onAdLoaded:nil];
+        }
+    }
+}
+
+
+#if 0
 - (void)vungleAdPlayabilityUpdate:(BOOL)isAdPlayable placementID:(nullable NSString *)placementID error:(nullable NSError *)error {
     NSLog(@"vungleAdPlayabilityUpdate:%@ placementID:%@  error:%@", @(isAdPlayable), placementID, error);
     if (_sdk.initialized && isAdPlayable && [placementID isEqualToString:_placementId]) {
@@ -165,6 +189,7 @@
         }
     }
 }
+#endif
 
 - (void)vungleWillShowAdForPlacementID:(nullable NSString *)placementID {
     NSLog(@"vungleWillShowAdForPlacementID, %@", placementID);
@@ -175,14 +200,19 @@
 
 - (void)vungleWillCloseAdWithViewInfo:(nonnull VungleViewInfo *)info placementID:(nonnull NSString *)placementID {
     NSLog(@"vungleWillCloseAdWithViewInfo, %@, %@", info, placementID);
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(onAdDidClose)]) {
+        [self.delegate onAdDidClose];
+    }
 }
 
+#if 0
 - (void)vungleDidCloseAdWithViewInfo:(nonnull VungleViewInfo *)info placementID:(nonnull NSString *)placementID {
     NSLog(@"vungleDidCloseAdWithViewInfo, %@, %@", info, placementID);
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(onAdDidClose)]) {
         [self.delegate onAdDidClose];
     }
 }
+#endif
 
 
 @end

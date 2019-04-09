@@ -57,6 +57,9 @@
         if([message hasPrefix:prefix]) {
             NSString *content = [message substringFromIndex:prefix.length];
             NSLog(@"%@", content);
+            if([prefix isEqualToString:@"error:"]) {
+                return [self new_javascriptMessageHandler:@"button:close"];
+            }
             return YES;
         }
     }
